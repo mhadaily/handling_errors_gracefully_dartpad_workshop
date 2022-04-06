@@ -1,6 +1,11 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:http/http.dart' as http;
+
+bool get isInDebugMode {
+  bool inDebugMode = false;
+  assert(inDebugMode = true);
+  return inDebugMode;
+}
 
 void main() {
   Future<String> getUserInfo() async {
@@ -17,9 +22,6 @@ void main() {
       return e.message ?? 'Timeout Error!';
     } on FormatException catch (e) {
       // Exception thrown when a string or some other data does not have an expected format and cannot be parsed or processed.
-      return e.message;
-    } on SocketException catch (e) {
-      // The might be no internet! Exception thrown when a socket operation fails.
       return e.message;
     } catch (e) {
       return 'Unknown error ${e.runtimeType}';
