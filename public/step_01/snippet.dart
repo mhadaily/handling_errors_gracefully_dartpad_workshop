@@ -1,4 +1,5 @@
 import 'dart:async';
+// Sadly, dart:io isn't supported on web. 
 import 'dart:io';
 
 import 'package:flutter/material.dart';

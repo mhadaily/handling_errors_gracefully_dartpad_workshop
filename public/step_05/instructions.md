@@ -1,6 +1,6 @@
 # Either type
 
-In the previous step, we have seen that when we handle errors the error type and the success type might be different. Let's review again:
+When we handled errors in the previous step, we saw that the error type and the success type are different. Let's review again:
 
 ```dart
   Future<dynamic> getUserInfo() async {
@@ -20,7 +20,9 @@ In the previous step, we have seen that when we handle errors the error type and
   }
 ```
 
-As you can see, the type is `Future<dynamic>` where it should be either `String` in case of `HttpStatus.ok` or `Failure` when `Exception` occurs. To fix this problem, we are going to borrow a concept from Scala programming language named `Either` where we can define `Left` or `Right` parties to `Either` class where `Left` represent the `Failure` and `Right` will be the returning success type;
+As you can see, the return type is `Future<dynamic>`. In other words, this function could return any type of object at some point in the future. However, we know our function can't return any kind of object. It returns either a `String` if everything works or `Failure` when an `Exception` occurs.
+
+To fix this problem, we are going to borrow a class from the Scala programming language: `Either`. The `Either` class allows you to define `Left` or `Right` properties. In our example, the `Left` property represents the `Failure` and the `Right` property represents the success type.
 
 ```dart
 /// Signature of callbacks that have no arguments and return right or left value.

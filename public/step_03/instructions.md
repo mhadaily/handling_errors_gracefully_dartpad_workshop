@@ -1,6 +1,9 @@
 # Create Custom Exception
 
-There are many times that we would like to throw our own exception in the application for example when authentication is failed.To define a customized exception class you can simple implements `Exception`:
+There are many times that we would like to throw our own exception in the application. For example, when user authentication fails.
+
+<!-- I try to avoid words like "simply." Just in case it takes the person a couple of extra minutes to grasp the concept, don't wanna make em feel bad :) -->
+To define a customized exception class you can implement the `Exception` interface:
 
 ```dart
 class UserInfoException implements Exception {
@@ -25,7 +28,7 @@ class UserInfoException implements Exception {
 }
 ```
 
-Now that you have defined you custom exception, you can simply catch it using `on` keyword as you have seen in the previous step:
+Now that you have defined you custom exception, you can catch it using `on` keyword as you have seen in the previous step:
 
 ```dart
   Future<String> getUserInfo() async {
