@@ -1,22 +1,48 @@
-# Define a custom error widget for build phase errors
+# Create Custom Exception
 
-To define a customized error widget that displays whenever the builder fails to build a widget, use MaterialApp.builder.
+There are many times that we would like to throw our own exception in the application for example when authentication is failed.To define a customized exception class you can simple implements `Exception`:
 
 ```dart
-class MyApp extends StatelessWidget {
-...
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      ...
-      builder: (BuildContext context, Widget widget) {
-        Widget error = Text('...rendering error...');
-        if (widget is Scaffold || widget is Navigator)
-          error = Scaffold(body: Center(child: error));
-        ErrorWidget.builder = (FlutterErrorDetails errorDetails) => error;
-        return widget;
-      },
-    );
-  }
+class UserInfoException implements Exception {
+  const UserInfoException(this.message);
+  final String message;
 }
 ```
+
+You may even go further and add more properties to the `class`:
+
+```dart
+class UserInfoException implements Exception {
+  const UserInfoException(
+    this.message, {
+    this.source,
+    this.code,
+  });
+   /// A message describing the error.
+  final String message;
+  final String? code;
+  final String? source;
+}
+```
+
+Now that you have defined you custom exception, you can simply catch it using `on` keyword as you have seen in the previous step:
+
+```dart
+  Future<String> getUserInfo() async {
+    try {
+      final url = Uri.https(DOMAIN, '/userinfo');
+      final response = await http.get(url);
+      if (response.statusCode == HttpStatus.ok) {
+        return 'Success';
+      } else {
+         throw UserInfoException('Failed to get user details');
+      }
+    } on UserInfoException catch (e) {
+      return e.message; // message that you have defined
+    } catch (e) {
+      return 'Unknown error ${e.runtimeType}';
+    }
+  }
+```
+
+In the next step, we will make our own object to return a proper type in case of `Exception`.

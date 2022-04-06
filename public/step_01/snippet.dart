@@ -4,11 +4,73 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  FlutterError.onError = (FlutterErrorDetails details) {
-    FlutterError.presentError(details);
-    if (kReleaseMode) exit(1);
+  
+  ErrorWidget.builder = (errorDetails) {
+    return ErrorScreen();
+  }
+
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    
+    // await myErrorsHandler.initialize(); 
+
+    FlutterError.onError = (FlutterErrorDetails details) async {
+    final dynamic exception = details.exception;
+    final StackTrace? stackTrace = details.stack;
+    if (isInDebugMode) {
+      // In development mode simply print to console.
+      FlutterError.dumpErrorToConsole(details);
+    } else {
+      // In production mode report to the application zone
+      Zone.current.handleUncaughtError(exception, stackTrace!);
+    }
   };
-  runApp(MyApp());
+    
+    runApp(MyApp());
+
+  }, 
+  (error, stackTrace) async {
+      if (isInDebugMode) {
+        // In development mode simply print to console.
+        print('Caught Dart Error!');
+        print('$error');
+        print('$stackTrace');
+      } else {
+         // In production
+        // Report errors to a reporting service such as Sentry or Crashlytics
+        // myErrorsHandler.onError(error, stack);
+        exit(1); // you may exit the app
+      }
+    },
+  );
 }
 
-// rest of `flutter create` code...
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: const Text('Hello'),
+      ),
+    );
+  }
+}
+
+class ErrorScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: [
+            const Text('CUSTOM ERROR PAGE'),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text("RETRY"),
+            ),
+          ]
+        )
+      ),
+    );
+  }
+}
