@@ -1,11 +1,6 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:http/http.dart' as http;
-
-bool get isInDebugMode {
-  bool inDebugMode = false;
-  assert(inDebugMode = true);
-  return inDebugMode;
-}
 
 void main() {
   Future<String> getUserInfo() async {

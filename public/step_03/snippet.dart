@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 void main() {
   Future<String> getUserInfo() async {
     try {
-      final url = Uri.https('https://jsonplaceholder.typicode.com', '/users/1');
+      final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
       final response = await http.get(url);
       if (response.statusCode == HttpStatus.ok) {
         return 'Success';
