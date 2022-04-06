@@ -120,3 +120,9 @@ Congratulation!
 Now you are handling your errors and exception gracefully and not only you are showing a proper message to your user which boost user experience but also you are able to report all caught errors to error reporting system such as Firebase Crashlytics or Sentry for further investigation.
 
 I hope you learned and enjoyed from the workshop.
+
+## Your Turn
+
+It's your turn now to go and redo what you have learned here and refactor your app or perhaps reuse these concepts with your favorite state management in your Flutter app.
+
+Good luck!
