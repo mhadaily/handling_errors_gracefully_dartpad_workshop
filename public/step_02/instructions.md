@@ -1,19 +1,19 @@
 # Catching exceptions
 
-There is no doubt that `try-catch` block makes it easy to handle any exception in our Dart and Flutter projects. However, only using this block and silently ignore the exception that goes to `catch` block can consider one of the worse error handling solution.
+There is no doubt that `try-catch` blocks makes it easy to handle any exception in our Dart and Flutter projects. However, silently ignoring the exception that goes to `catch` block is considered one of the worse ways to handle errors.
 
-Let's now see how we can use `try-catch` block to handle our errors gracefully, notify our users gently and report errors accordingly.
+Let's now see how we can use a `try-catch` block to handle our errors gracefully, notify our users gently, and report errors accordingly.
 
 ## How to use `try-catch`
 
-Let's first look at a typical example, where you have a service, that has a function which is making a `http` call.
+Let's first look at a typical example, where you have a service that makes an `http` call.
 
 ```dart
  Future<String> getUserInfo() async {
     try {
       final url = Uri.https(DOMAIN, '/userinfo');
       final response = await http.get(url);
-      if (response.statusCode == HttpStatus.ok) {
+      if (response.statusCode == HttpStatus.ok) { // Might have to hard-code 200 since HttpStatus comes from dart:io
          return 'Success';
        } else {
          throw Exception('Failed to get user details');
@@ -24,9 +24,9 @@ Let's first look at a typical example, where you have a service, that has a func
   }
 ```
 
-There are different scenarios that this function may throw an exception but generally the block above will catch all the exception with no specification!
+The code inside the `try` block above may throw many types of exceptions: `TimeoutException`, `FormatException` etc. The `catch` block handles all of them.
 
-This simple example can easily become pretty advanced where it's pretty suitable to handle different exception and properly show different error message.
+However, this simple example can easily become pretty advanced. In that case, it's better to handle specific exception in different ways.
 
 Let's extend the example above with `on` keyword to `catch` a specific exception:
 

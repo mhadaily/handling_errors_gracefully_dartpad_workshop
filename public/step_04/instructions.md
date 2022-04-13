@@ -1,6 +1,9 @@
 # Define a custom Failure class
 
-In the previous step, we were returning `String` in case of `Exception`, now we are going to improve our implementation. To have a better and robust code we can create a `Failure` class and return that in case of any `Exception`;
+In the previous step, we were returning `String` in case of `Exception`. Now, we are going to improve our implementation. 
+
+<!-- Can you explain a bit more why this will make the code "better and more robust"? We can use the Failure type to... -->
+To have a better and robust code we can create a `Failure` class and return that in case of any `Exception`;
 
 ```dart
 class Failure{
@@ -11,9 +14,10 @@ class Failure{
 }
 ```
 
-Now wen can also refine our previous implementation
+Now, we can refine our previous implementation.
 
 ```dart
+  // I was gonna ask about this, but you introduce the `Either` type in the next step! I really like that transition: It shows how to accomplish something in a non-so-ideal way then makes it better :)
   Future<dynamic> getUserInfo() async {
     try {
       final url = Uri.https('https://jsonplaceholder.typicode.com/users/1');
@@ -41,9 +45,10 @@ Now wen can also refine our previous implementation
   }
 ```
 
-Now this block might be repeated in many other functions especially similar ones. Therefore, you may create a higher order function to make it easier wrapping similar functions with the same block and failures!
+<!-- Higher order error handlers. Very cool. -->
+This block might be repeated in many other functions, especially similar ones. Therefore, you may create a higher order function to make it easier wrapping similar functions with the same block and failures!
 
-Let's first create a `errorHandler` function where it accepts a callback which is going to be our service's method:
+Let's first create an `errorHandler` function where it accepts a callback which is going to be our service's method:
 
 ```dart
  typedef AsyncCallBack<T> = Future<T> Function();
