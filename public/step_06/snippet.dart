@@ -46,6 +46,7 @@ class _UserPageState extends State<UserPage> {
     final userService = UserService();
     data = await userService.getUserInfo();
     setState(() {});
+    print(data);
   }
 
   @override

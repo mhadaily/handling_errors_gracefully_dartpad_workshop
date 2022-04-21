@@ -64,13 +64,16 @@ class ErrorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Column(children: [
-        const Text('CUSTOM ERROR PAGE'),
-        ElevatedButton(
-          onPressed: () {},
-          child: const Text("RETRY"),
+        child: Column(
+          children: [
+            const Text('CUSTOM ERROR PAGE'),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("RETRY"),
+            ),
+          ],
         ),
-      ])),
+      ),
     );
   }
 }

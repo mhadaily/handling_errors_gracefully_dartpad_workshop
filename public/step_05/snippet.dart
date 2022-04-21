@@ -105,7 +105,8 @@ class UserService {
   }
 }
 
-main() {
+main() async {
   final userService = UserService();
-  userService.getUserInfo();
+  final result = await userService.getUserInfo();
+  print(result);
 }
