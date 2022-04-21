@@ -43,7 +43,8 @@ class _UserPageState extends State<UserPage> {
   }
 
   getUser() async {
-    data = await getUserInfo();
+    final userService = UserService();
+    data = await userService.getUserInfo();
     setState(() {});
   }
 
@@ -79,23 +80,24 @@ class User {
 }
 
 // From previous step
-
-Future<Either<Failure, User>> getUserInfo() async {
-  return errorHandler(
-    () async {
-      final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
-      final http.Response response = await http.get(url);
-      if (response.statusCode == 200) {
-        return User.fromJson(jsonDecode(response.body));
-      } else {
-        throw const UserInfoException(
-          'It seems that the server is not reachable at the moment, try '
-          'again later, should the issue persist please reach out to the '
-          'developer at a@b.com',
-        );
-      }
-    },
-  );
+class UserService {
+  Future<Either<Failure, User>> getUserInfo() async {
+    return errorHandler(
+      () async {
+        final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
+        final http.Response response = await http.get(url);
+        if (response.statusCode == 200) {
+          return User.fromJson(jsonDecode(response.body));
+        } else {
+          throw const UserInfoException(
+            'It seems that the server is not reachable at the moment, try '
+            'again later, should the issue persist please reach out to the '
+            'developer at a@b.com',
+          );
+        }
+      },
+    );
+  }
 }
 
 class Failure {
@@ -116,10 +118,10 @@ Future<Either<Failure, T>> errorHandler<T>(AsyncCallBack<T> callback) async {
     return Left(
       Failure(e.message, 'Formatting Error!'),
     );
-  } on SocketException catch (e) {
-    return Left(
-      Failure(e.message, 'No Connection!'),
-    );
+    // } on SocketException catch (e) {
+    //   return Left(
+    //     Failure(e.message, 'No Connection!'),
+    //   );
   } on UserInfoException catch (e) {
     return Left(
       Failure(e.message, 'User Cannot be found!'),

@@ -6,23 +6,6 @@ typedef AsyncCallBack<T> = Future<T> Function();
 /// Signature of callbacks that have no arguments and return right or left value.
 typedef Callback<T> = void Function(T value);
 
-main() {
-  Future<dynamic> getUserInfo() async {
-    return errorHandler(() async {
-      final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
-      final response = await http.get(url);
-      if (response.statusCode == 200) {
-        return 'Success';
-      } else {
-        throw UserInfoException(
-            'It seems that the server is not reachable at the moment, try '
-            'again later, should the issue persist please reach out to the '
-            'developer at a@b.com');
-      }
-    });
-  }
-}
-
 class Failure {
   Failure(this.message, this.title);
 
@@ -41,10 +24,10 @@ Future<Either<Failure, T>> errorHandler<T>(AsyncCallBack<T> callback) async {
     return Left(
       Failure(e.message, 'Formatting Error!'),
     );
-  } on SocketException catch (e) {
-    return Left(
-      Failure(e.message, 'No Connection!'),
-    );
+    // } on SocketException catch (e) {
+    //   return Left(
+    //     Failure(e.message, 'No Connection!'),
+    //   );
   } on UserInfoException catch (e) {
     return Left(
       Failure(e.message, 'User Cannot be found!'),
@@ -100,4 +83,29 @@ class UserInfoException implements Exception {
   final String message;
   final String? code;
   final String? source;
+}
+
+class UserService {
+  Future<dynamic> getUserInfo() async {
+    return errorHandler(
+      () async {
+        final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
+        final response = await http.get(url);
+        if (response.statusCode == 200) {
+          return 'Success';
+        } else {
+          throw UserInfoException(
+            'It seems that the server is not reachable at the moment, try '
+            'again later, should the issue persist please reach out to the '
+            'developer at a@b.com',
+          );
+        }
+      },
+    );
+  }
+}
+
+main() {
+  final userService = UserService();
+  userService.getUserInfo();
 }
