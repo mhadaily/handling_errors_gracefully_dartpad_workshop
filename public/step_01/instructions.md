@@ -91,7 +91,7 @@ main(){
       } else {
          // In production
         // Report errors to a reporting service such as Sentry or Crashlytics
-        exit(1); // you may exit the app
+        // exit(1); // you may exit the app
       }
     },
   );

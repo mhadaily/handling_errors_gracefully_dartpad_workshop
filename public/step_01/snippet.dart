@@ -42,7 +42,7 @@ void main() {
         // In production
         // Report errors to a reporting service such as Sentry or Crashlytics
         // myErrorsHandler.onError(error, stack);
-        exit(1); // you may exit the app
+        // exit(1); // you may exit the app
       }
     },
   );
