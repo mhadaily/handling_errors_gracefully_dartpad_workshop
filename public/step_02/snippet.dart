@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:http/http.dart' as http;
 
-void main() {
+class UserService {
   Future<String> getUserInfo() async {
     try {
       final url = Uri.https('https://jsonplaceholder.typicode.com', '/users/1');
@@ -21,4 +21,9 @@ void main() {
       return 'Unknown error ${e.runtimeType}';
     }
   }
+}
+
+void main() {
+  final userService = UserService();
+  userService.getUserInfo();
 }
