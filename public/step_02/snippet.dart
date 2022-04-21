@@ -6,7 +6,7 @@ class UserService {
     // Your turn: Use Try-Catch and On Keyword
 
     final url = Uri.https('https://jsonplaceholder.typicode.com', '/users/1');
-    final response = await http.get(url);
+    await http.get(url);
     return 'Done';
   }
 }

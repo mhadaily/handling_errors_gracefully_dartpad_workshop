@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 main() {
-  // Your turn: use ZoneGuarded
+  // Your turn: use runZoneGuarded
   runApp(const MyApp());
 }
 
@@ -30,7 +30,7 @@ class UserPage extends StatefulWidget {
 }
 
 class _UserPageState extends State<UserPage> {
-  Either<Failure, User>? data;
+  dynamic data; // your turn: fix this type using `Either`
 
   @override
   void initState() {

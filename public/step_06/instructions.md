@@ -95,7 +95,7 @@ class Right<L, R> extends Either<L, R> {
 
 ```
 
-With this implementation now I am able to directly return a `Widget` coresponding to the value of failure or success.
+With this implementation now I am able to directly return a `Widget` corresponding to the value of failure or success.
 
 ```dart
   @override

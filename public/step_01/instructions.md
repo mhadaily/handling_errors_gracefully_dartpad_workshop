@@ -112,7 +112,7 @@ Note that if in your app you call `WidgetsFlutterBinding.ensureInitialized()` ma
 
 ## Your turn
 
-It's now your turn to use use `runZoneGuarded`.
+I have small challenge for you now. Look at the snippet and try to implement your `runApp` with `runZoneGuarded`.
 
 ## What next
 

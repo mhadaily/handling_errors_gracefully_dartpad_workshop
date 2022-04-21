@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 class UserService {
   Future<String> getUserInfo() async {
     final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
-    final response = await http.get(url);
+    await http.get(url);
     return 'DONE';
     // Throw your custom exceptions and catch using `on` keyword
   }
