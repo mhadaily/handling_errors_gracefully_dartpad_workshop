@@ -2,9 +2,7 @@
 
 In the previous step, you were returning `String` in case of `Exception`. Now, you are going to improve your implementation.
 
-<!-- Can you explain a bit more why this will make the code "better and more robust"? you can use the Failure type to... -->
-
-To have a better and robust code you can create a `Failure` class and return that in case of any `Exception`;
+To have a better and robust code you can create a `Failure` class and return that in case of any `Exception`; you can use the `Failure` type to ...
 
 ```dart
 class Failure{
@@ -45,7 +43,7 @@ Now, you can refine your previous implementation.
   }
 ```
 
-<!-- Higher order error handlers. Very cool. -->
+**_Higher order error handler_**
 
 This block might be repeated in many other functions, especially similar ones. Therefore, you may create a higher order function to make it easier wrapping similar functions with the same block and failures!
 
@@ -92,5 +90,9 @@ Now you can refactor your `getUserInfo` function and simplify by wrapping it wit
     );
   }
 ```
+
+## Your turn
+
+## What next
 
 In the next step, you will see how you can handle different returning types for this method.

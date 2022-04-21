@@ -99,4 +99,8 @@ Then, you can now refactor your `getUserInfo` and replace dynamic with `<Either<
   }
 ```
 
+## Your turn
+
+## What next
+
 In the next step, you will put all together and render a Flutter screen based on this `Either` type;

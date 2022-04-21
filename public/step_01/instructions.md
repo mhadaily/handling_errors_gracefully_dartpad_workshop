@@ -4,11 +4,7 @@ Errors can occurs at any time in any applications. It's your responsibility to h
 
 All errors caught by Flutter are routed to the `FlutterError.onError` function. By default, this calls `FlutterError.presentError`, which dumps the error to the device logs. That's why you see the messages in your IDE or text editor.
 
-<!-- I've changed these sentences for clarity. Please accept to disregard those changes :) -->
-
 However, you can override the `Flutter.onError` function. For example, the code below prints errors to the console in debug mode, and reports errors to the current `Zone` in production mode.
-
-<!-- Random Thought: Are you going to discuss zones in future steps? Zones are kind of advanced, not sure if they should be mentioned right away or not? -->
 
 ```dart
 main(){
@@ -28,11 +24,11 @@ main(){
 }
 ```
 
+**_What is Zone?_**
+
 ## Types of Errors
 
 Typically, there two types of handling errors in Flutter.
-
-<!-- Would like to use an h3 here: "### Error during the build phase", but the styling on Dartpad is a bit small -->
 
 **_Error during the build phase_**
 

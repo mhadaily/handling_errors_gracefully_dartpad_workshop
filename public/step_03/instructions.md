@@ -47,4 +47,8 @@ Now that you have defined you custom exception, you can catch it using `on` keyw
   }
 ```
 
+## Your turn
+
+## What next
+
 In the next step, you will make your own object to return a proper type in case of `Exception`.
