@@ -2,10 +2,10 @@
 
 This workshops is authored by Majid Hajian. You may reach out to me if you have any questions:
 
-- Twitter: https://twitter.com/mhadaily
-- Linkedin: https://linkedin.com/in/mhadaily
-- Youtube: https://youtube.com/mhadaily
-- Github: https://github.com/mhadaily
+- [Twitter: https://twitter.com/mhadaily](https://twitter.com/mhadaily)
+- [Linkedin: https://linkedin.com/in/mhadaily](https://linkedin.com/in/mhadaily)
+- [Youtube: https://youtube.com/mhadaily](https://youtube.com/mhadaily)
+- [Github: https://github.com/mhadaily](https://github.com/mhadaily)
 
 Errors can occurs at any time in any applications. It's your responsibility to handle them gracefully and boost the user experience by showing helpful messages. Let's first start by understanding how Flutter handles errors and why you see a red screen from time to time!
 
