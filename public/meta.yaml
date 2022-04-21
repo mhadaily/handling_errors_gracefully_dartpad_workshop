@@ -7,19 +7,22 @@ type: flutter
 steps:
   - name: Step 1
     directory: step_01
-    has_solution: false
+    has_solution: true
   - name: Step 2
     directory: step_02
-    has_solution: false
+    has_solution: true
   - name: Step 3
     directory: step_03
-    has_solution: false
+    has_solution: true
   - name: Step 4
     directory: step_04
-    has_solution: false
+    has_solution: true
   - name: Step 5
     directory: step_05
-    has_solution: false
+    has_solution: true
   - name: Step 6
     directory: step_06
+    has_solution: true
+  - name: Step 7
+    directory: step_07
     has_solution: false
