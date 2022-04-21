@@ -2,7 +2,7 @@
 
 In the previous step, you were returning `String` in case of `Exception`. Now, you are going to improve your implementation.
 
-To have a better and robust code you can create a `Failure` class and return that in case of any `Exception`; you can use the `Failure` type to ...
+To have a better and robust code you can create a `Failure` class and return that in case of any `Exception`; The `Failure` makes your returning messages type consistent and allows you to extend their members such as message and title if needed. For example, you may add `code` later on.
 
 ```dart
 class Failure{
@@ -10,6 +10,14 @@ class Failure{
 
   final String message;
   final String title;
+
+  @override
+  toString(){
+    return {
+      'message': message,
+      'title': title,
+    }.toString();
+  }
 }
 ```
 

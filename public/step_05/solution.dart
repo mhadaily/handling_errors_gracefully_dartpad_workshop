@@ -11,6 +11,14 @@ class Failure {
 
   final String message;
   final String title;
+
+  @override
+  toString() {
+    return {
+      'message': message,
+      'title': title,
+    }.toString();
+  }
 }
 
 Future<Either<Failure, T>> errorHandler<T>(AsyncCallBack<T> callback) async {

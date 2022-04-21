@@ -8,6 +8,14 @@ class Failure {
 
   final String message;
   final String title;
+
+  @override
+  toString() {
+    return {
+      'message': message,
+      'title': title,
+    }.toString();
+  }
 }
 
 class UserInfoException implements Exception {
