@@ -1,6 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+bool get isInDebugMode {
+  bool inDebugMode = false;
+  assert(inDebugMode = true);
+  return inDebugMode;
+}
+
 void main() {
   ErrorWidget.builder = (errorDetails) {
     return ErrorScreen();

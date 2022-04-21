@@ -7,6 +7,11 @@ All errors caught by Flutter are routed to the `FlutterError.onError` function. 
 However, you can override the `Flutter.onError` function. For example, the code below prints errors to the console in debug mode, and reports errors to the current `Zone` in production mode.
 
 ```dart
+bool get isInDebugMode {
+  bool inDebugMode = false;
+  assert(inDebugMode = true);
+  return inDebugMode;
+}
 main(){
   // This captures errors reported by the Flutter framework.
   FlutterError.onError = (FlutterErrorDetails details) async {
