@@ -1,8 +1,8 @@
 # Catching exceptions
 
-There is no doubt that `try-catch` blocks makes it easy to handle any exception in our Dart and Flutter projects. However, silently ignoring the exception that goes to `catch` block is considered one of the worse ways to handle errors.
+There is no doubt that `try-catch` blocks makes it easy to handle any exception in your Dart and Flutter projects. However, silently ignoring the exception that goes to `catch` block is considered one of the worse ways to handle errors.
 
-Let's now see how we can use a `try-catch` block to handle our errors gracefully, notify our users gently, and report errors accordingly.
+Let's now see how you can use a `try-catch` block to handle your errors gracefully, notify your users gently, and report errors accordingly.
 
 ## How to use `try-catch`
 

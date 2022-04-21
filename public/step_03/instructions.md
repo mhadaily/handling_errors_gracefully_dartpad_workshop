@@ -1,8 +1,7 @@
 # Create Custom Exception
 
-There are many times that we would like to throw our own exception in the application. For example, when user authentication fails.
+There are many times that you would like to throw your own exception in the application. For example, when user authentication fails.
 
-<!-- I try to avoid words like "simply." Just in case it takes the person a couple of extra minutes to grasp the concept, don't wanna make em feel bad :) -->
 To define a customized exception class you can implement the `Exception` interface:
 
 ```dart
@@ -48,4 +47,4 @@ Now that you have defined you custom exception, you can catch it using `on` keyw
   }
 ```
 
-In the next step, we will make our own object to return a proper type in case of `Exception`.
+In the next step, you will make your own object to return a proper type in case of `Exception`.

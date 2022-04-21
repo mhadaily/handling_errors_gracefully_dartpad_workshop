@@ -1,6 +1,6 @@
 # Either type
 
-When we handled errors in the previous step, we saw that the error type and the success type are different. Let's review again:
+When you handled errors in the previous step, you saw that the error type and the success type are different. Let's review again:
 
 ```dart
   Future<dynamic> getUserInfo() async {
@@ -20,9 +20,9 @@ When we handled errors in the previous step, we saw that the error type and the 
   }
 ```
 
-As you can see, the return type is `Future<dynamic>`. In other words, this function could return any type of object at some point in the future. However, we know our function can't return any kind of object. It returns either a `String` if everything works or `Failure` when an `Exception` occurs.
+As you can see, the return type is `Future<dynamic>`. In other words, this function could return any type of object at some point in the future. However, you know your function can't return any kind of object. It returns either a `String` if everything works or `Failure` when an `Exception` occurs.
 
-To fix this problem, we are going to borrow a class from the Scala programming language: `Either`. The `Either` class allows you to define `Left` or `Right` properties. In our example, the `Left` property represents the `Failure` and the `Right` property represents the success type.
+To fix this problem, you are going to borrow a class from the Scala programming language: `Either`. The `Either` class allows you to define `Left` or `Right` properties. In your example, the `Left` property represents the `Failure` and the `Right` property represents the success type.
 
 ```dart
 /// Signature of callbacks that have no arguments and return right or left value.
@@ -64,7 +64,7 @@ class Right<L, R> extends Either<L, R> {
 }
 ```
 
-We are now able to return a type that has two expected type! Let's refactor, beginning with `errorHandler` function:
+You are now able to return a type that has two expected type! Let's refactor, beginning with `errorHandler` function:
 
 ```dart
  typedef AsyncCallBack<T> = Future<T> Function();
@@ -79,7 +79,7 @@ We are now able to return a type that has two expected type! Let's refactor, beg
 }
 ```
 
-Then, wen can now refactor our `getUserInfo` and replace dynamic with `<Either<Failure, String>>` the `String` is success type where it can be anything in this case:
+Then, you can now refactor your `getUserInfo` and replace dynamic with `<Either<Failure, String>>` the `String` is success type where it can be anything in this case:
 
 ```dart
   Future<<Either<Failure, String>>> getUserInfo() async {
@@ -99,4 +99,4 @@ Then, wen can now refactor our `getUserInfo` and replace dynamic with `<Either<F
   }
 ```
 
-In the next step, we will put all together and render a Flutter screen based on this `Either` type;
+In the next step, you will put all together and render a Flutter screen based on this `Either` type;

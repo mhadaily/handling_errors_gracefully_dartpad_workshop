@@ -1,6 +1,6 @@
 # Handling errors gracefully Dartpad Workshop
 
-Errors can happen anytime in any application. Showing proper messages to your app users will significantly boost their experiences, but how can you do that? In this workshop, we are going beyond try/catch and will handle errors by creating our customer failure class as well as a widget and we will show proper messages based on the received messages.
+Errors can happen anytime in any application. Showing proper messages to your app users will significantly boost their experiences, but how can you do that? In this workshop, you are going beyond try/catch and will handle errors by creating your customer failure class as well as a widget and you will show proper messages based on the received messages.
 
 ## Quickstart (Firebase Hosting)
 

@@ -1,11 +1,12 @@
 # Handling errors in Flutter
 
-Errors can occurs at any time in any applications. It's our responsibility to handle them gracefully and boost the user experience by showing helpful messages. Let's first start by understanding how Flutter handles errors and why you see a red screen from time to time!
+Errors can occurs at any time in any applications. It's your responsibility to handle them gracefully and boost the user experience by showing helpful messages. Let's first start by understanding how Flutter handles errors and why you see a red screen from time to time!
 
 All errors caught by Flutter are routed to the `FlutterError.onError` function. By default, this calls `FlutterError.presentError`, which dumps the error to the device logs. That's why you see the messages in your IDE or text editor.
 
 <!-- I've changed these sentences for clarity. Please accept to disregard those changes :) -->
-However, you can override the `Flutter.onError` function. For example, the code below prints errors to the console in debug mode, and reports errors to the current `Zone` in production mode. 
+
+However, you can override the `Flutter.onError` function. For example, the code below prints errors to the console in debug mode, and reports errors to the current `Zone` in production mode.
 
 <!-- Random Thought: Are you going to discuss zones in future steps? Zones are kind of advanced, not sure if they should be mentioned right away or not? -->
 
@@ -32,7 +33,8 @@ main(){
 Typically, there two types of handling errors in Flutter.
 
 <!-- Would like to use an h3 here: "### Error during the build phase", but the styling on Dartpad is a bit small -->
-***Error during the build phase***
+
+**_Error during the build phase_**
 
 In this case, the `ErrorWidget.builder` function is invoked to build the widget that is used instead of the one that failed. This is the reason you see red screen and error message in debug mode and gray screen in production mode. You can also override the `ErrorWidget.builder` function to change the behavior.
 
@@ -64,7 +66,7 @@ main() {
 }
 ```
 
-***Error without a Flutter callback on the call stack***
+**_Error with a Flutter callback on the call stack_**
 
 In this case, error will be handled by `Zone` where it does nothing except to print it out by default!
 
@@ -98,4 +100,8 @@ main(){
 
 Note that if in your app you call `WidgetsFlutterBinding.ensureInitialized()` manually to perform some initialization before calling runApp (e.g. `Firebase.initializeApp()`), you must call `WidgetsFlutterBinding.ensureInitialized()` inside `runZonedGuarded` as I did in the example above!
 
-Now that you know how Flutter handles errors, it's time to see how we can gracefully handle errors as well!
+## Your turn
+
+## What next
+
+Now that you know how Flutter handles errors, it's time to see how you can gracefully handle errors as well!
