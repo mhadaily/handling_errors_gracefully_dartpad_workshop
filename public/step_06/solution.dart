@@ -188,4 +188,13 @@ class UserInfoException implements Exception {
   final String message;
   final String? code;
   final String? source;
+
+  @override
+  toString() {
+    return {
+      'message': message,
+      'code': code,
+      'source': source,
+    }.toString();
+  }
 }

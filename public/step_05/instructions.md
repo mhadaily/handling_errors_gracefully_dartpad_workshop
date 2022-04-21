@@ -99,7 +99,12 @@ Then, you can now refactor your `getUserInfo` and replace dynamic with `<Either<
   }
 ```
 
+**_Note_**
+You do not need to implement `Either` or `Left` and `Right` yourself. There are packages such as [dartz](https://pub.dev/packages/dartz) that has already implemented this feature.
+
 ## Your turn
+
+This time, I have a small challenge for you. Try to use `Either`, `Left` and `Right` in our `errorHandler` function that you have defined in the previous steps and utilized it in your method in the service class.
 
 ## What next
 

@@ -12,40 +12,9 @@ void main() {
     return ErrorScreen();
   };
 
-  runZonedGuarded(
-    () async {
-      WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
 
-      // await myErrorsHandler.initialize();
-
-      FlutterError.onError = (FlutterErrorDetails details) async {
-        final dynamic exception = details.exception;
-        final StackTrace? stackTrace = details.stack;
-        if (isInDebugMode) {
-          // In development mode simply print to console.
-          FlutterError.dumpErrorToConsole(details);
-        } else {
-          // In production mode report to the application zone
-          Zone.current.handleUncaughtError(exception, stackTrace!);
-        }
-      };
-
-      runApp(MyApp());
-    },
-    (error, stackTrace) async {
-      if (isInDebugMode) {
-        // In development mode simply print to console.
-        print('Caught Dart Error!');
-        print('$error');
-        print('$stackTrace');
-      } else {
-        // In production
-        // Report errors to a reporting service such as Sentry or Crashlytics
-        // myErrorsHandler.onError(error, stack);
-        // exit(1); // you may exit the app
-      }
-    },
-  );
+  // Your Turn: Implement `runApp(MyApp());` using `runZonedGuarded`
 }
 
 class MyApp extends StatelessWidget {

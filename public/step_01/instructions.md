@@ -38,6 +38,8 @@ main(){
 
 **_What is Zone?_**
 
+A zone represents an environment that remains stable across asynchronous calls. a Zone works like an executing context.
+
 ## Types of Errors
 
 Typically, there two types of handling errors in Flutter.
@@ -109,6 +111,8 @@ main(){
 Note that if in your app you call `WidgetsFlutterBinding.ensureInitialized()` manually to perform some initialization before calling runApp (e.g. `Firebase.initializeApp()`), you must call `WidgetsFlutterBinding.ensureInitialized()` inside `runZonedGuarded` as I did in the example above!
 
 ## Your turn
+
+It's now your turn to use use `runZoneGuarded`.
 
 ## What next
 

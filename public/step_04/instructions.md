@@ -93,6 +93,8 @@ Now you can refactor your `getUserInfo` function and simplify by wrapping it wit
 
 ## Your turn
 
+Create a hider order error handler and use it in this method to handle errors for your methods and function.
+
 ## What next
 
 In the next step, you will see how you can handle different returning types for this method.

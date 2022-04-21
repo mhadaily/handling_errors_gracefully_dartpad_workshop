@@ -13,30 +13,6 @@ class Failure {
   final String title;
 }
 
-Future<Either<Failure, T>> errorHandler<T>(AsyncCallBack<T> callback) async {
-  try {
-    return Right(await callback());
-  } on TimeoutException catch (e) {
-    return Left(
-      Failure(e.message ?? 'Timeout Error!', 'Timeout Error'),
-    );
-  } on FormatException catch (e) {
-    return Left(
-      Failure(e.message, 'Formatting Error!'),
-    );
-    // } on SocketException catch (e) {
-    //   return Left(
-    //     Failure(e.message, 'No Connection!'),
-    //   );
-  } on UserInfoException catch (e) {
-    return Left(
-      Failure(e.message, 'User Cannot be found!'),
-    );
-  } catch (e) {
-    return Left(Failure('Unknown error ${e.runtimeType}', '${e.runtimeType}'));
-  }
-}
-
 abstract class Either<L, R> {
   Either() {
     if (!isLeft && !isRight) {
@@ -83,25 +59,33 @@ class UserInfoException implements Exception {
   final String message;
   final String? code;
   final String? source;
+
+  @override
+  toString() {
+    return {
+      'message': message,
+      'code': code,
+      'source': source,
+    }.toString();
+  }
 }
+
+// your tune: Implement `errorHandler` higher order function utilizing Either and `Left` and `Right`.
 
 class UserService {
   Future<dynamic> getUserInfo() async {
-    return errorHandler(
-      () async {
-        final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
-        final response = await http.get(url);
-        if (response.statusCode == 200) {
-          return 'Success';
-        } else {
-          throw UserInfoException(
-            'It seems that the server is not reachable at the moment, try '
-            'again later, should the issue persist please reach out to the '
-            'developer at a@b.com',
-          );
-        }
-      },
-    );
+    // use `errorHandler` in this method to catch errors and fix the returning type
+    final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      return 'Success';
+    } else {
+      throw UserInfoException(
+        'It seems that the server is not reachable at the moment, try '
+        'again later, should the issue persist please reach out to the '
+        'developer at a@b.com',
+      );
+    }
   }
 }
 

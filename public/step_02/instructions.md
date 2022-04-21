@@ -72,6 +72,8 @@ try {
 
 ## Your turn
 
+Now it's time to implement try-catch block and use `on` keyword to catch specific exception for `getUserInfo` method.
+
 ## What next
 
 In the next step, you will learn how you can define a custom `Exception`.

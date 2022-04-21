@@ -8,6 +8,13 @@ To define a customized exception class you can implement the `Exception` interfa
 class UserInfoException implements Exception {
   const UserInfoException(this.message);
   final String message;
+
+  @override
+  toString() {
+    return {
+      'message': message,
+    }.toString();
+  }
 }
 ```
 
@@ -24,6 +31,15 @@ class UserInfoException implements Exception {
   final String message;
   final String? code;
   final String? source;
+
+  @override
+  toString() {
+    return {
+      'message': message,
+      'code': code,
+      'source': source,
+    }.toString();
+  }
 }
 ```
 
@@ -48,6 +64,8 @@ Now that you have defined you custom exception, you can catch it using `on` keyw
 ```
 
 ## Your turn
+
+Create `UserInfoException` class, throw that exception on an appropriate place and catch using `on` keyword.
 
 ## What next
 

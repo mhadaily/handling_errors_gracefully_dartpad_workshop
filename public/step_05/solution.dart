@@ -83,10 +83,19 @@ class UserInfoException implements Exception {
   final String message;
   final String? code;
   final String? source;
+
+  @override
+  toString() {
+    return {
+      'message': message,
+      'code': code,
+      'source': source,
+    }.toString();
+  }
 }
 
 class UserService {
-  Future<dynamic> getUserInfo() async {
+  Future<Either<Failure, String>> getUserInfo() async {
     return errorHandler(
       () async {
         final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
