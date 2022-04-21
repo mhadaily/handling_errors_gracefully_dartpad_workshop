@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 void main() {
@@ -7,7 +6,7 @@ void main() {
     try {
       final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
       final response = await http.get(url);
-      if (response.statusCode == HttpStatus.ok) {
+      if (response.statusCode == 200) {
         return 'Success';
       } else {
         throw UserInfoException('Failed to get user details');

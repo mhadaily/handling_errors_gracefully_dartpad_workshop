@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -86,7 +85,7 @@ Future<Either<Failure, User>> getUserInfo() async {
     () async {
       final url = Uri.https('jsonplaceholder.typicode.com', '/users/1');
       final http.Response response = await http.get(url);
-      if (response.statusCode == HttpStatus.ok) {
+      if (response.statusCode == 200) {
         return User.fromJson(jsonDecode(response.body));
       } else {
         throw const UserInfoException(

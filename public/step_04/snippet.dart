@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:http/http.dart' as http;
 
 typedef AsyncCallBack<T> = Future<T> Function();
@@ -9,7 +8,7 @@ main() {
     return errorHandler(() async {
       final url = Uri.https('https://jsonplaceholder.typicode.com', '/users/1');
       final response = await http.get(url);
-      if (response.statusCode == HttpStatus.ok) {
+      if (response.statusCode == 200) {
         return 'Success';
       } else {
         throw UserInfoException(
