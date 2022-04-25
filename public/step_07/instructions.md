@@ -1,4 +1,4 @@
-# Congratulation
+# Congratulations
 
 Now you are handling your errors and exception gracefully and not only you are showing a proper message to your user which boost user experience but also you are able to report all caught errors to error reporting system such as [Firebase Crashlytics](https://firebase.flutter.dev/docs/core/usage/) or [Sentry] (https://sentry.io) for further investigation.
 

@@ -1,4 +1,8 @@
-# Create Custom Exception
+# Create a Custom Exception
+
+or 
+
+# Create Custom Exceptions
 
 There are many times that you would like to throw your own exception in the application. For example, when user authentication fails.
 

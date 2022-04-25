@@ -1,6 +1,6 @@
 # Catching exceptions
 
-There is no doubt that `try-catch` blocks makes it easy to handle any exception in your Dart and Flutter projects. However, silently ignoring the exception that goes to `catch` block is considered one of the worse ways to handle errors.
+There is no doubt that `try-catch` blocks make it easy to handle any exception in your Dart and Flutter projects. However, silently ignoring the exception that goes to `catch` block is considered one of the worst ways to handle errors.
 
 Let's now see how you can use a `try-catch` block to handle your errors gracefully, notify your users gently, and report errors accordingly.
 
@@ -58,7 +58,7 @@ Notice you can handle exception much better now as you know the specific type an
 
 ### Finally
 
-In `try-catch` block you have another keyword named `finally` where the execution run into it when either `try` or `catch` is finished and in fact is the best time to run any side effect for example to clean up cache or add something to cache.
+`try-catch` blocks have another keyword named `finally`, which runs a block of code after either the `try` or `catch` is finished. In fact, `finally` is the best time to run any side effects, such as adding or removing items from a cache.
 
 ```dart
 try {
@@ -74,6 +74,7 @@ try {
 
 Now it's time to implement try-catch block and use `on` keyword to catch specific exception for `getUserInfo` method.
 
+<!-- I really like the "What's next" sections :) -->
 ## What next
 
-In the next step, you will learn how you can define a custom `Exception`.
+In the next step, you will learn how you can define and catch a custom `Exception`.
