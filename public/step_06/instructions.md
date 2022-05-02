@@ -1,6 +1,6 @@
 # Building screen based on Success or Failure
 
-Before I continue to the UI implementation, I will create `User` model as follow:
+Before you continue to the UI implementation, I will create `User` model as follows:
 
 ```dart
 class User {
@@ -18,7 +18,7 @@ class User {
 }
 ```
 
-Then, I will convert my `json` to Dart object where I call http endpoint:
+Then, I will convert my `json` to Dart object where I call the http endpoint:
 
 ```dart
 Future<Either<Failure, User>> getUserInfo() async {

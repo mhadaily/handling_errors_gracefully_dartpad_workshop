@@ -1,5 +1,8 @@
 # Handling errors in Flutter
 
+Errors can occurs at any time in any application. It's your responsibility to handle them gracefully and boost the user experience by showing helpful messages. In this workshop, you'll learn how to handle errors in Flutter like a pro.
+
+<!-- The contact info is great, but felt a little out of place since it is the very first line of text in the body. Maybe a short summary first, then the author intro? -->
 This workshops is authored by Majid Hajian. You may reach out to me if you have any questions:
 
 - [Twitter: https://twitter.com/mhadaily](https://twitter.com/mhadaily)
@@ -7,7 +10,10 @@ This workshops is authored by Majid Hajian. You may reach out to me if you have 
 - [Youtube: https://youtube.com/mhadaily](https://youtube.com/mhadaily)
 - [Github: https://github.com/mhadaily](https://github.com/mhadaily)
 
-Errors can occurs at any time in any applications. It's your responsibility to handle them gracefully and boost the user experience by showing helpful messages. Let's first start by understanding how Flutter handles errors and why you see a red screen from time to time!
+## onError Function
+
+<!-- Maybe save the red screen tidbit for below where ErrorWidget.builder captures and handles them? -->
+Let's first start by understanding how Flutter handles errors.
 
 All errors caught by Flutter are routed to the `FlutterError.onError` function. By default, this calls `FlutterError.presentError`, which dumps the error to the device logs. That's why you see the messages in your IDE or text editor.
 
@@ -38,7 +44,7 @@ main(){
 
 **_What is Zone?_**
 
-A zone represents an environment that remains stable across asynchronous calls. a Zone works like an executing context.
+A `Zone` represents an environment that remains stable across asynchronous calls. A `Zone` works like an execution context.
 
 ## Types of Errors
 

@@ -31,7 +31,7 @@ typedef Callback<T> = void Function(T value);
 abstract class Either<L, R> {
   Either() {
     if (!isLeft && !isRight) {
-      throw Exception('The ether should be heir Left or Right.');
+      throw Exception('Either must be Left or Right.');
     }
   }
 
